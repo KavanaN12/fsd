@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CSS Box Model Explained</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #444;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  #container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+  #banner {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+  }
+  .main-content {
+    display: flex;
+    min-height: 500px;
+    gap: 20px;
+  }
+  #nav {
+    flex: 0 0 220px;
+    background-color: #2a9d8f;
+    padding: 30px 20px;
+    border-radius: 0 0 0 8px;
+  }
+  #nav h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 10px;
+  }
+  #nav ul {
+    list-style: none;
+  }
+  #nav li {
+    margin: 15px 0;
+  }
+  #nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: block;
+    transition: background-color 0.3s ease;
+  }
+  #nav a:hover,
+  #nav a:focus {
+    background-color: rgba(255,255,255,0.2);
+    outline: none;
+  }
+  #content {
+    flex: 1;
+    padding: 30px 25px;
+  }
+  #content section {
+    margin-bottom: 40px;
+  }
+  #content h2 {
+    font-size: 2rem;
+    color: #264653;
+    margin-bottom: 15px;
+    border-left: 5px solid #2a9d8f;
+    padding-left: 10px;
+  }
+  #content p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+  #content ul {
+    margin-left: 20px;
+    color: #555;
+  }
+  #content ul li {
+    margin-bottom: 8px;
+  }
+  .highlight {
+    background-color: #ffe066;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+  #footer {
+    background-color: #e9ecef;
+    text-align: center;
+    padding: 20px;
+    font-weight: 600;
+    color: #555;
+    font-size: 0.9rem;
+    border-top: 1px solid #ccc;
+  }
+  #footer::before {
+    content: "© 2025 CSS Box Model Tutorial | ";
+  }
+  #footer::after {
+    content: " All Rights Reserved.";
+  }
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+    }
+    #nav {
+      flex: none;
+      width: 100%;
+      border-radius: 0 0 8px 8px;
+      padding: 20px;
+    }
+    #content {
+      padding: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+<div id="container">
+  <div id="banner">
+    CSS Box Model Explained
+  </div>
+  <div class="main-content">
+    <nav id="nav" aria-label="Main Navigation">
+      <h3>Navigate</h3>
+      <ul>
+        <li><a href="#intro">Introduction</a></li>
+        <li><a href="#components">Components</a></li>
+        <li><a href="#pseudo-classes">Pseudo-Classes</a></li>
+        <li><a href="#examples">Examples</a></li>
+      </ul>
+    </nav>
+    <div id="content">
+      <section id="intro">
+        <h2>Introduction</h2>
+        <p>The <strong>CSS Box Model</strong> is a fundamental concept in web design. Every HTML element is represented as a rectangular box, and the box model describes the content, padding, border, and margin of these boxes. Understanding this helps in designing and controlling layouts precisely.</p>
+      </section>
+      <section id="components">
+        <h2>Box Model Components</h2>
+        <ul>
+          <li><span class="highlight">Content</span>: The actual content like text or images.</li>
+          <li><span class="highlight">Padding</span>: Space between content and border.</li>
+          <li><span class="highlight">Border</span>: The edge surrounding padding and content.</li>
+          <li><span class="highlight">Margin</span>: Space outside the border, separating the element from others.</li>
+        </ul>
+      </section>
+      <section id="pseudo-classes">
+        <h2>Pseudo-Classes Used</h2>
+        <p>CSS pseudo-classes let you define a special state of an element.</p>
+        <ul>
+          <li><span class="highlight">:hover</span> – Changes style when mouse hovers over an element.</li>
+          <li><span class="highlight">:active</span> – Changes style when an element is clicked.</li>
+          <li><span class="highlight">:first-child</span> – Targets the first child element of a parent.</li>
+          <li><span class="highlight">:last-child</span> – Targets the last child element of a parent.</li>
+        </ul>
+      </section>
+      <section id="examples">
+        <h2>Examples & Tips</h2>
+        <p>Use the box model knowledge to fix common layout problems:</p>
+        <ul>
+          <li>To add space inside a button, increase <code>padding</code>.</li>
+          <li>To create gaps between sections, adjust <code>margin</code>.</li>
+          <li>Use <code>box-sizing: border-box;</code> to include padding and border in element’s width.</li>
+          <li>Hover and active effects improve user experience on navigation links.</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  <footer id="footer" role="contentinfo">
+    Footer Content
+  </footer>
+</div>
+</body>
+</html>
